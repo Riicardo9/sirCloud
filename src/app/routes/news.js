@@ -3,8 +3,8 @@ const dbConection = require ('../../config/dbConection.js')
 module.exports = app => {
 
     const conection = dbConection();
-    app.get('/', (req, res) =>{
 
+    app.get('/', (req, res) =>{
         conection.query('SELECT * FROM radioFrecuencia', (err, result) => {
             console.log(result)
             res.render('news/news', {
@@ -14,8 +14,9 @@ module.exports = app => {
     });
 
     app.get('/busqueda', (req,resp) => {
-        const{idBuscar} = req.body
-        conection.query(`SELECT * FROM radioFrecuencia WHERE id_radio = 3`, (err, result) => {
+        const {idBuscar} = req.body
+        console.log(idBuscar)
+        conection.query(`SELECT * FROM radioFrecuencia WHERE id_radio = 2`, (err, result) => {
             console.log(result)
             resp.render('news/news', {
                 radio : result
@@ -43,7 +44,4 @@ module.exports = app => {
         res.redirect('/');
         })
     })
-
-    
-
 }

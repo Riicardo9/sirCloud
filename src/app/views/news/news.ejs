@@ -38,13 +38,14 @@
   <body>
     <nav class="navbar navbar-dark bg-dark">
         <div>
-          <img src="../../img/logo.JPG" alt="logo" style="height: 4px text-align-left">
+          <img src="img/logo.JPG" alt="logo" style="height: 40px text-align-left">
         </div>
         <div>
           <span class="navbar-brand mb-0 h1 text-align-center">SIRCLOUD - Gestión de radios bases</span>
         </div>
-        <form class="form-inline text-align-rigth" action="/busqueda" method="get">
+        <form id="form_buscar"class="form-inline text-align-rigth" action="/busqueda" method="get">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="idBuscar">
+          
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar ID</button>
         </form>
     </nav>
@@ -58,7 +59,7 @@
                 <div class="formulario-contenedor">
                   <div class="card">
                     <div class="card-header">
-                      <h4 >Agregar frecuencia</h4>
+                      <h3 >Agregar frecuencia</h3>
                     </div>
                     <div class="p-3">
                       <form action="/news" method="post" class="card-body">
@@ -192,12 +193,13 @@
 
     <div class="container-fluid">
       <div class="box mt-5 ml-3">
-        <h1>Radio Frecuencia</h1>
+        <h3>Tabla Radio Frecuencias</h3>
       </div>
         <div class="table-responsive col-md-12 mt-3 text-align-center" style="font-size:12px">
           <table id="tabla" class="table table-sm ">
             <thead class="thead-dark">
             <tr>
+              <th>Id Radio</th> 
               <th>Region</th>   
               <th>Proveedor RAN</th>
               <th>Id Sitio</th>
@@ -213,8 +215,11 @@
             </tr> 
           </thead>
 
+          <div id="tabla">
+
             <% for (var i = 0; i < radio.length; i ++) { %>
               <tr>
+                <td><%= radio[i].id_radio %></td>
                 <td><%= radio[i].region %></td>
                 <td><%= radio[i].proveedor_ran %></td>
                 <td><%= radio[i].id_sitio %></td>
@@ -229,6 +234,8 @@
                 <td><%= radio[i].rfi_estimado_cfe %></td>
               </tr>
             <% } %>
+          </div>
+            
               
           </table>
         </div>
@@ -249,7 +256,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/gridjs/dist/gridjs.production.min.js"></script>
-<script src="news.js"></script>
+    <script src="logic.js"></script>
 
 
 
