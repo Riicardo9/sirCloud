@@ -13,10 +13,11 @@ module.exports = app => {
         });
     });
 
-    app.get('/busqueda', (req,resp) => {
+
+    app.get('/buscar', (req,resp) => {
         const {idBuscar} = req.body
-        console.log(idBuscar)
-        conection.query(`SELECT * FROM radioFrecuencia WHERE id_radio = 2`, (err, result) => {
+        console.log('*******' +idBuscar)
+        conection.query(`SELECT * FROM radioFrecuencia WHERE id_radio = 3`, (err, result) => {
             console.log(result)
             resp.render('news/news', {
                 radio : result

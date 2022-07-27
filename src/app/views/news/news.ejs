@@ -43,10 +43,10 @@
         <div>
           <span class="navbar-brand mb-0 h1 text-align-center">SIRCLOUD - Gestión de radios bases</span>
         </div>
-        <form id="form_buscar"class="form-inline text-align-rigth" action="/busqueda" method="get">
+        <form id="form_buscar"class="form-inline text-align-rigth" action="/buscar" method="get">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="idBuscar">
-          
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar ID</button>
+
         </form>
     </nav>
 
@@ -216,7 +216,6 @@
           </thead>
 
           <div id="tabla">
-
             <% for (var i = 0; i < radio.length; i ++) { %>
               <tr>
                 <td><%= radio[i].id_radio %></td>
